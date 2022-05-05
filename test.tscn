@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1sw6ortgg8qu"]
+
+[ext_resource type="Shader" path="res://SDF.gdshader" id="1_0jvkm"]
+[ext_resource type="Texture2D" uid="uid://cu86qf0ue3hnp" path="res://img/gradient_1d.tres" id="2_h2471"]
+[ext_resource type="Texture2D" uid="uid://wuaiaijliwqk" path="res://img/sdf.png" id="3_ls71n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u18tf"]
+shader = ExtResource( "1_0jvkm" )
+shader_param/thickness = null
+shader_param/softness = 0.329
+shader_param/outline_thickness = 0.803
+shader_param/outline_softness = 0.418
+shader_param/gradient = ExtResource( "2_h2471" )
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6c0hq"]
+shader = ExtResource( "1_0jvkm" )
+shader_param/thickness = 0.513
+shader_param/softness = 0.0
+shader_param/outline_thickness = 0.0
+shader_param/outline_softness = 0.01
+
+[node name="Test" type="Node2D"]
+
+[node name="Sdf" type="Sprite2D" parent="."]
+material = SubResource( "ShaderMaterial_u18tf" )
+position = Vector2(267, 279)
+texture = ExtResource( "3_ls71n" )
+
+[node name="Text" type="Sprite2D" parent="."]
+material = SubResource( "ShaderMaterial_6c0hq" )
+position = Vector2(764, 283)
+texture = ExtResource( "3_ls71n" )
